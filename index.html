@@ -59,19 +59,37 @@ footer{padding:18px 14px 30px;text-align:center;color:var(--mut);font-size:.85re
 @media(min-width:560px){.grid{grid-template-columns:repeat(2,1fr)}h1{font-size:3rem}}
 @media(min-width:820px){.grid{grid-template-columns:repeat(3,1fr)}.how{grid-template-columns:repeat(3,1fr)}}
 @media(prefers-reduced-motion:reduce){.car{animation:none}html{scroll-behavior:auto}}
+
+header{display:block;padding:0}
+.hrow{padding:10px 14px}
+nav.sub{display:flex;gap:6px;overflow-x:auto;padding:0 14px 10px;scrollbar-width:none}
+nav.sub a{flex:none;min-height:40px;display:inline-flex;align-items:center;padding:0 14px;border:1px solid var(--line);border-radius:20px;color:var(--txt);text-decoration:none;font-weight:600;font-size:.9rem}
+[id]{scroll-margin-top:118px}
+section{margin-top:34px}
+.cat p{color:var(--mut);margin:0 0 14px;max-width:60ch}
+.tag.ok{background:#12351f;color:#6fe39a}
+.tag.devt{background:#3a2a0a;color:#ffc857}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.p.dev .art{opacity:.8;border-bottom-color:#444}
+.pb h4{margin:12px 0 4px;font-size:.9rem}
+.pb ul{margin:0 0 4px;padding-left:20px;color:var(--mut);font-size:.92rem}
+.pb details{background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;padding:0;margin-top:6px}
+.pb details summary{min-height:44px;font-size:.95rem;color:var(--red2)}
+.faq details{margin-bottom:8px;padding:0 14px}
+.faq details p,.pol details p{color:var(--mut);margin:0 0 12px}
+#toast{position:fixed;left:12px;right:12px;bottom:calc(env(safe-area-inset-bottom,0px) + 12px);max-width:640px;margin:0 auto;background:#1f1f27;border:1px solid var(--red);border-radius:10px;padding:12px;z-index:20;font-size:.92rem}
+#tm{display:block;margin:6px 0 10px;user-select:all;-webkit-user-select:all}
+.how div span{display:block;color:var(--mut);font-weight:400}
 </style>
 </head>
 <body>
-<header>
-<a class="logo" href="#top" aria-label="García GP Shop"><span>GARCÍA</span><b>GP</b><small>Shop</small></a>
-<a class="cta" href="#tienda">Ver guías</a>
-</header>
+<header><div class="hrow"><a class="logo" href="#top" aria-label="García GP Shop"><span>GARCÍA</span><b>GP</b><small>Shop</small></a></div><nav class="sub" aria-label="Secciones"><a href="#tienda">Guías</a><a href="#como">Cómo pedir</a><a href="#faq">Preguntas</a><a href="#sobre">Sobre nosotros</a><a href="#politicas">Políticas</a></nav></header>
 <div class="flag"></div>
 
 <div class="hero" id="top">
 <div class="wrap">
 <h1>Equípate como en el <em>paddock</em></h1>
-<p>Guías prácticas para pilotos virtuales y aficionados al automovilismo, con el sello de García GP.</p>
+<p>Guías en español para aprender simracing y automovilismo, con el sello de García GP.</p>
 <a class="btn" href="#tienda">Ver las guías</a>
 <div class="speed" aria-hidden="true"></div>
 <svg class="car" viewBox="0 0 420 130" role="img" aria-label="Ilustración original de un monoplaza rojo">
@@ -89,53 +107,112 @@ footer{padding:18px 14px 30px;text-align:center;color:var(--mut);font-size:.85re
 <div class="flag"></div>
 
 <main id="tienda">
-<p class="note"><strong>Primera guía disponible.</strong> Trazadas y frenadas ya está lista: toca “Pedir la guía” y escríbenos por mensaje directo en Instagram. Las demás guías se están escribiendo.</p>
-<h2>Guías</h2>
-<div class="grid" id="grid"></div>
+<p class="note"><strong>Cómo funciona hoy:</strong> los pedidos se hacen por mensaje directo en Instagram y el pago se hace por Nequi. Todavía no hay pagos automáticos: confirmamos cada pago a mano y después enviamos el PDF.</p>
+<div id="cats"></div>
 
-<div class="how" id="como">
-<div><strong>1. Elige</strong>Escoge la guía que necesitas.</div>
-<div><strong>2. Pide y paga por Nequi</strong>Te escribes por mensaje y pagas con QR o transferencia. El pago no se hace en esta página.</div>
-<div><strong>3. Recíbelo</strong>Cuando se confirma el pago, recibes la guía en PDF por mensaje.</div>
+<section id="como">
+<h2>Cómo pedir una guía</h2>
+<div class="how">
+<div><strong>1. Elige tu guía</strong><span>Toca “Pedir por Instagram” en la guía que esté disponible.</span></div>
+<div><strong>2. Escríbenos por mensaje</strong><span>Se copia un mensaje con el nombre de la guía. Pégalo en el chat de Instagram.</span></div>
+<div><strong>3. Paga por Nequi</strong><span>Te enviamos los datos de pago por el chat. Cuando pagues, envíanos el comprobante.</span></div>
+<div><strong>4. Recibe tu PDF</strong><span>Cuando confirmamos el pago, te enviamos el archivo por mensaje.</span></div>
 </div>
+</section>
 
-<details>
-<summary>Modo vendedor: añadir mis enlaces de compra</summary>
-<p style="color:var(--mut);font-size:.92rem">Pega aquí el enlace de cada producto (empieza por https://). Se guardan solo en este navegador. Para que los vea todo el mundo, hay que escribirlos en el código.</p>
-<div id="admin"></div>
-<p class="msg" id="msg" role="status"></p>
-<button class="btn" id="save">Guardar enlaces</button>
-</details>
+<section id="sobre">
+<h2>Sobre García GP Shop</h2>
+<p>García GP Shop es un proyecto independiente de contenido en español sobre automovilismo y simracing. Las guías son originales y están escritas para que se entiendan desde el celular.</p>
+<p>Empezamos con una guía y vamos agregando más poco a poco. Un producto solo aparece como disponible cuando su PDF está terminado.</p>
+</section>
+
+<section id="faq" class="faq">
+<h2>Preguntas frecuentes</h2>
+<details><summary>¿Cómo recibo la guía?</summary><p>Cuando confirmamos tu pago, te enviamos el PDF por mensaje directo en Instagram.</p></details>
+<details><summary>¿Cómo se paga?</summary><p>Por Nequi. Te damos los datos en el chat y nos envías el comprobante. Todavía no hay pagos automáticos en esta página.</p></details>
+<details><summary>¿Necesito experiencia o un equipo caro?</summary><p>No. La guía Trazadas y frenadas sirve con mando o con volante.</p></details>
+<details><summary>¿Sirve para cualquier simulador?</summary><p>Explica principios generales. Cada juego y cada coche se sienten distintos, así que conviene probarlos y ajustarlos.</p></details>
+<details><summary>¿Cuándo salen las demás guías?</summary><p>Están en desarrollo y todavía no tienen fecha. Cuando su PDF esté terminado, aparecerán como disponibles.</p></details>
+</section>
+
+<section id="politicas" class="pol">
+<h2>Políticas y contacto</h2>
+<details><summary>Entrega digital</summary><p>Las guías son archivos PDF. Después de confirmar tu pago, te enviamos el archivo por mensaje directo en Instagram. Si no puedes abrirlo, avísanos y buscamos otra forma de entregártelo.</p></details>
+<details><summary>Atención y reembolsos</summary><p>Respondemos los mensajes lo antes posible. Si tu PDF llega dañado, no es el que pediste o no puedes abrirlo, lo corregimos o te devolvemos tu pago. Como es un producto digital que queda en tu poder, no hacemos devoluciones por cambiar de opinión después de recibirlo.</p></details>
+<details><summary>Contacto</summary><p>Escríbenos por mensaje directo en Instagram: <a href="https://www.instagram.com/garcia_gp03" target="_blank" rel="noopener noreferrer" style="color:var(--red2)">@garcia_gp03</a></p></details>
+</section>
 </main>
+<div id="toast" role="status" hidden><span id="tt"></span><strong id="tm"></strong><button class="btn" id="tx" style="min-height:40px;margin:0">Cerrar</button></div>
 <div class="flag"></div>
-<footer>García GP. Contenido original, sin relación con equipos ni marcas oficiales.</footer>
+<footer>García GP Shop es un proyecto independiente y no está afiliado, patrocinado ni respaldado por equipos de Fórmula 1, la FIA ni otras marcas. Contenido original.</footer>
 
 <script>
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const LINKS={trazadas:'https://www.instagram.com/garcia_gp03'}; /* Para enlaces permanentes: LINKS.camiseta='https://...' */
+/* Configuración pública: el enlace de Instagram para pedidos */
+const IG='https://ig.me/m/garcia_gp03';
 const T='font-family="Arial Black,Impact,sans-serif" font-style="italic" font-weight="900" text-anchor="middle"';
-const cover=(t,i)=>`<svg viewBox="0 0 120 100"><rect x="30" y="6" width="60" height="88" rx="4" fill="#e5252a"/><rect x="30" y="6" width="8" height="88" fill="#b01c20"/><g transform="translate(66 38)" fill="none" stroke="#fff" stroke-width="3">${i}</g><text x="66" y="72" ${T} font-size="9" fill="#fff">${t}</text><text x="66" y="85" ${T} font-size="6" fill="#ffd2d3">GARCÍA GP</text></svg>`;
+const cover=(t,i,on)=>`<svg viewBox="0 0 120 100" role="img" aria-label="Portada de la guía ${esc(t)}"><rect x="30" y="6" width="60" height="88" rx="4" fill="${on?'#e5252a':'#33333c'}"/><rect x="30" y="6" width="8" height="88" fill="${on?'#b01c20':'#25252c'}"/><g transform="translate(66 38)" fill="none" stroke="#fff" stroke-width="3">${i}</g><text x="66" y="72" ${T} font-size="9" fill="#fff">${t}</text><text x="66" y="85" ${T} font-size="6" fill="#ffd2d3">GARCÍA GP</text></svg>`;
+const IC={
+tra:'<path d="M-16 14Q-16-12 0-12Q16-12 16 14"/><circle cx="0" cy="-12" r="3" fill="#fff"/>',
+neu:'<circle r="15"/><circle r="6"/>',
+ban:'<path d="M-12-16V16M-12-14H14V2H-12"/>',
+vol:'<circle r="15"/><path d="M-15 0H15M0 0V15"/>',
+est:'<circle r="15"/><path d="M0-9V0L8 5"/>',
+reg:'<rect x="-11" y="-16" width="22" height="32" rx="2"/><path d="M-6-7H6M-6 0H6M-6 7H2"/>',
+cir:'<path d="M-15 6Q-15-12-2-12H8Q16-12 16-2Q16 10 4 10H-6Q-15 10-15 6Z"/>',
+con:'<circle r="15"/><path d="M0-2V8"/><circle cx="0" cy="-8" r="1.5" fill="#fff"/>',
+sho:'<rect x="-10" y="-16" width="20" height="32" rx="3"/><path d="M-4-6L6 0L-4 6Z" fill="#fff"/>',
+gra:'<rect x="-15" y="-10" width="30" height="20" rx="3"/><circle r="5" fill="#fff"/>',
+com:'<circle cx="-8" cy="-4" r="7"/><circle cx="9" cy="-4" r="7"/><path d="M-18 14Q0 2 18 14"/>'};
+const D=(c,name,lvl,t,i,desc,learn)=>({c,name,lvl,t,i:IC[i],desc,learn,on:0});
+const CATS=[
+{id:'sim',n:'Academia Simracing',d:'Para pilotos virtuales que quieren bajar sus tiempos y correr limpio.'},
+{id:'mot',n:'Academia Motorsport',d:'Para entender cómo funciona el automovilismo.'},
+{id:'cre',n:'Creator Garage',d:'Para crear contenido de automovilismo y simracing.'}];
 const P=[
-{id:'trazadas',tag:'GUÍA',name:'Trazadas y frenadas',desc:'Cómo elegir la línea, frenar a tiempo y salir rápido de cada curva. Incluye 3 dibujos y un plan de práctica de 5 sesiones.',price:'5.500 COP',art:cover('TRAZADAS','<path d="M-16 14 Q-16 -12 0 -12 Q16 -12 16 14"/><circle cx="0" cy="-12" r="3" fill="#fff"/>')},
-{id:'neumaticos',tag:'GUÍA',name:'Neumáticos y paradas en boxes',desc:'Compuestos, desgaste y cuándo parar para ganar posiciones. Contenido en preparación.',price:'Precio por definir',art:cover('NEUMÁTICOS','<circle r="15"/><circle r="6"/>')},
-{id:'banderas',tag:'GUÍA',name:'Banderas y carrera limpia',desc:'Qué significa cada bandera y cómo evitar sanciones en carreras online. Contenido en preparación.',price:'Precio por definir',art:cover('BANDERAS','<path d="M-12 -16 V16 M-12 -14 H14 V2 H-12"/>')},
-{id:'volante',tag:'GUÍA',name:'Ajustes de volante y pedales',desc:'Sensibilidad, fuerza de retorno y zonas muertas explicadas paso a paso. Contenido en preparación.',price:'Precio por definir',art:cover('VOLANTE','<circle r="15"/><path d="M-15 0 H15 M0 0 V15"/>')},
-{id:'shorts',tag:'GUÍA',name:'Crea tus Shorts de automovilismo',desc:'Ideas, estructura y consejos para grabar y editar clips de carreras. Contenido en preparación.',price:'Precio por definir',art:cover('SHORTS','<rect x="-10" y="-16" width="20" height="32" rx="3"/><path d="M-4 -6 L6 0 L-4 6Z" fill="#fff"/>')}
+{c:'sim',on:1,name:'Trazadas y frenadas',lvl:'Principiante',t:'TRAZADAS',i:IC.tra,price:'5.500 COP',
+desc:'Cómo elegir la línea, frenar a tiempo y salir rápido de cada curva.',
+learn:['Dividir cualquier curva en cuatro momentos.','Cuándo usar la trazada clásica y cuándo girar más tarde.','Frenar en recta y soltar el freno poco a poco.','Reconocer y corregir los errores más comunes.'],
+inc:['Guía en PDF','3 dibujos explicativos y 3 ilustraciones','Plan de práctica de 5 sesiones','Lista de comprobación y glosario'],
+prev:['Antes de empezar','La idea de fondo: manda la salida','Los cuatro momentos de una curva','La trazada clásica (y cuándo romperla)','Frenar bien','Errores comunes','Plan de práctica de 5 sesiones'],
+ex:'“Hasta la curva más fea se puede partir en cuatro momentos.”'},
+{c:'sim',on:1,name:'Neumáticos y paradas en boxes',lvl:'Intermedio',t:'NEUMÁTICOS',i:IC.neu,price:'5.500 COP',
+desc:'Cuándo parar, con qué gomas salir y cómo no perder tiempo en boxes.',
+learn:['Diferenciar los neumáticos blandos, medios y duros.','Reconocer las señales del desgaste.','Entender qué cuesta realmente una parada en boxes.','Decidir cuándo parar, y qué son el undercut y el overcut.'],
+inc:['Guía en PDF','4 dibujos explicativos y 2 ilustraciones','Plan de práctica de 5 sesiones','Lista de comprobación y glosario'],
+prev:['Antes de empezar (y de cambiar de gomas)','Lo básico: tres tipos de gomas','El desgaste: cómo darte cuenta','Cuida tus gomas','La parada en boxes: lo que realmente cuesta','¿Cuándo parar? Piensa en el tiempo total','Undercut y overcut'],
+ex:'“Los neumáticos no avisan con una alarma.”'},
+{c:'sim',on:1,name:'Banderas y carrera limpia',lvl:'Principiante',t:'BANDERAS',i:IC.ban,price:'5.500 COP',
+desc:'Qué significa cada bandera y cómo correr limpio sin sanciones.',
+learn:['Reconocer las banderas más comunes y qué hacer al verlas.','Reglas básicas para correr limpio.','Volver a pista sin provocar un accidente.','Qué sanciones existen y cómo evitarlas.'],
+inc:['Guía en PDF','2 dibujos explicativos y 3 ilustraciones','Plan de práctica de 5 sesiones','Lista de comprobación y glosario'],
+prev:['Las banderas más comunes','Qué hacer cuando ves una bandera','Correr limpio: las reglas de oro','Si algo sale mal: cómo volver a pista','Sanciones: qué son y cómo evitarlas','Errores comunes'],
+ex:'“Amarilla es cuidado, azul es deja pasar, roja es para.”'},
+D('sim','Ajustes de volante y pedales','Principiante','VOLANTE','vol','Configura tu equipo para sentir mejor el coche.',['Sensibilidad y fuerza de retorno','Zonas muertas','Posición de conducción']),
+D('mot','Estrategia de carrera','Intermedio','ESTRATEGIA','est','Cómo se piensa una carrera más allá de la vuelta rápida.',['Tiempo total de carrera','Paradas y tráfico','Adaptarse al clima']),
+D('mot','Introducción a los reglamentos','Principiante','REGLAMENTOS','reg','Lo básico para entender cómo se organiza una carrera.',['Fin de semana de carrera','Puntos y clasificación','Sanciones']),
+D('mot','Fundamentos de los circuitos','Principiante','CIRCUITOS','cir','Cómo está hecho un circuito y por qué cada uno es distinto.',['Partes de un circuito','Tipos de curvas','Cómo leer un trazado']),
+D('mot','Conceptos básicos de automovilismo','Principiante','CONCEPTOS','con','El vocabulario esencial para seguir cualquier carrera.',['Vocabulario básico','Roles dentro de un equipo','Cómo se desarrolla una carrera']),
+D('cre','Cómo crear Shorts de automovilismo','Principiante','SHORTS','sho','Ideas y estructura para videos cortos de carreras.',['Un buen gancho','Estructura de un Short','Edición básica']),
+D('cre','Cómo grabar carreras de videojuegos','Principiante','GRABAR','gra','Graba tus partidas con buena imagen y buen audio.',['Grabar la pantalla del celular','Audio claro','Consejos de calidad']),
+D('cre','Cómo construir una comunidad de automovilismo','Intermedio','COMUNIDAD','com','Cómo reunir y cuidar a quienes comparten tu afición.',['Constancia al publicar','Responder a la comunidad','Organizar eventos'])
 ];
-let saved={};try{saved=JSON.parse(localStorage.getItem('ggp_shop_links')||'{}')}catch(e){}
-const link=id=>{const l=LINKS[id]||saved[id]||'';return /^https:\/\//i.test(l)?l:''};
-let cat='all';
-function render(){
-$('#grid').innerHTML=P.map(p=>{const l=link(p.id);
-return `<article class="p"><div class="art">${p.art}</div><div class="pb"><span class="tag">${p.tag}</span><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p><div class="price">${esc(p.price)}</div>${l?`<a class="btn" href="${esc(l)}" target="_blank" rel="noopener noreferrer">Pedir la guía</a>`:`<span class="btn off" aria-disabled="true">${p.id==='trazadas'?'Disponible pronto':'Próximamente'}</span>`}</div></article>`}).join('')}
-$('#admin').innerHTML=P.map(p=>`<label for="l-${p.id}">${esc(p.name)}</label><input id="l-${p.id}" inputmode="url" placeholder="https://" value="${esc(saved[p.id]||'')}">`).join('');
-$('#save').addEventListener('click',()=>{const n={};let bad=false;
-P.forEach(p=>{const v=$('#l-'+p.id).value.trim();if(v&&!/^https:\/\//i.test(v))bad=true;else if(v)n[p.id]=v});
-if(bad){$('#msg').textContent='Cada enlace debe empezar por https://';return}
-saved=n;try{localStorage.setItem('ggp_shop_links',JSON.stringify(n));$('#msg').textContent='Enlaces guardados.'}catch(e){$('#msg').textContent='No se pudo guardar en este navegador.'}
-render()});
-render();
+const li=a=>'<ul>'+a.map(x=>`<li>${esc(x)}</li>`).join('')+'</ul>';
+function card(p){
+const det=p.on?`<details><summary>Ver qué incluye</summary><h4>Lo que aprenderás</h4>${li(p.learn)}<h4>Contenido incluido</h4>${li(p.inc)}<h4>Vista previa del índice</h4>${li(p.prev)}<p class="mut" style="font-size:.9rem;margin-top:8px">${esc(p.ex)}</p></details>`
+:`<details><summary>Temas previstos</summary>${li(p.learn)}<p class="mut" style="font-size:.85rem">Los temas pueden cambiar mientras se escribe la guía.</p></details>`;
+const btn=p.on?`<a class="btn" href="${IG}" target="_blank" rel="noopener noreferrer" data-n="${esc(p.name)}" data-pr="${esc(p.price)}">Pedir por Instagram</a>`:`<span class="btn off" aria-disabled="true">En desarrollo</span>`;
+return `<article class="p${p.on?'':' dev'}"><div class="art">${cover(p.t,p.i,p.on)}</div><div class="pb"><div class="tags"><span class="tag ${p.on?'ok':'devt'}">${p.on?'DISPONIBLE':'EN DESARROLLO'}</span><span class="tag">${esc(p.lvl)}</span></div><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p><div class="price">${p.on?esc(p.price):'Precio por definir'}</div>${det}${btn}</div></article>`}
+$('#cats').innerHTML=CATS.map(c=>`<section class="cat" id="${c.id}"><h2>${esc(c.n)}</h2><p>${esc(c.d)}</p><div class="grid">${P.filter(p=>p.c===c.id).map(card).join('')}</div></section>`).join('');
+/* Pedido: copia un mensaje con el nombre de la guía y abre el chat de Instagram */
+document.addEventListener('click',e=>{
+const a=e.target.closest('a[data-n]');if(!a)return;
+const m='Hola, quiero pedir la guía “'+a.dataset.n+'” de García GP Shop ('+a.dataset.pr+').';
+$('#tm').textContent=m;$('#toast').hidden=false;$('#tt').textContent='Copiando mensaje…';
+const fail=()=>{$('#tt').textContent='No se pudo copiar solo. Mantén presionado este mensaje, cópialo y pégalo en el chat de Instagram:'};
+try{navigator.clipboard.writeText(m).then(()=>{$('#tt').textContent='Mensaje copiado. Pégalo en el chat de Instagram:'},fail)}catch(err){fail()}});
+$('#tx').addEventListener('click',()=>{$('#toast').hidden=true});
 </script>
 </body>
 </html>
